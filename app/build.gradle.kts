@@ -34,7 +34,7 @@ android {
         buildConfig = true
     }
 
-    signingConfigs {
+/*    signingConfigs {
         create("emulator") {
             rootProject.file("keystore.properties").takeIf(File::isFile)?.inputStream().use {
                 val keystoreProperties = Properties()
@@ -46,7 +46,7 @@ android {
             }
         }
     }
-
+*/
     buildTypes {
         release {
             isMinifyEnabled = true
@@ -68,7 +68,7 @@ android {
     productFlavors {
         create("emulator") { // variant dimension for create emulator
             buildConfigField("boolean", "FULL_EMULATOR", "true")
-            signingConfig = signingConfigs.getByName("emulator")
+            // signingConfig = signingConfigs.getByName("emulator")
             versionNameSuffix = System.getenv("VERSION_SUFFIX")
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
